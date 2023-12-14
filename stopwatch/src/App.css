@@ -1,0 +1,25 @@
+.time{
+  font-family: 'Roboto', sans-serif;
+  font-size: 56px;
+}
+
+.time-container{
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.btn{
+  padding: 12px;
+  margin: 6px;
+  width: 80px;
+  background-color: beige;
+  border-radius: 20px;
+}
+.btn:hover{
+  background-color: #fae1dd
+}
