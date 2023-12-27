@@ -13,8 +13,6 @@ export default function Time() {
     var timer = setInterval(() => setNewDate(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
-
-
   let separator = " : ";
   return (
     <div className="mt-12 ">

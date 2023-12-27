@@ -5,10 +5,10 @@ function App() {
  
 
   return (
-    <>
+    <div className='h-full bg-slate-100 '>
       <Header/>
       <Todos/>
-    </>
+    </div>
   )
 }
 

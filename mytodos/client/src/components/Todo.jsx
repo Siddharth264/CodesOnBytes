@@ -35,7 +35,7 @@ export default function Todo({ title, description, isChecked, id ,setChanged}, )
         setError(data.message)
         return
       }
-      setChanged(change => !change)
+      setChanged(prev => !prev)
     } catch (error) {
       setError(error.message);
     }
@@ -58,9 +58,7 @@ export default function Todo({ title, description, isChecked, id ,setChanged}, )
         return
       }
       setIsEditing(false)
-      setChanged(change => !change)
-
-
+      setChanged(prev => !prev)
     } catch (error) {
       setError(error.message);
     }
@@ -68,30 +66,30 @@ export default function Todo({ title, description, isChecked, id ,setChanged}, )
 
   return (
     <>
-    <div className="flex   gap-3 justify-between border p-4 rounded-xl">
+    <div className="flex justify-between bg-white shadow-xl  hover:shadow-md rounded-xl mb-2">
       <div className="flex flex-1">
         <div className="p-3 flex flex-col justify-center">
-      <input onChange={handleChange} className="w-7 h-7" type="checkbox" checked={marked} name="checkbox" id="checkbox" />
+      <input onChange={handleChange} className="w-7 h-7 ml-4 appearance-none outline-none border-2 rounded-full bg-white border-black checked:bg-orange-500 cursor-pointer" type="checkbox" checked={marked} name="checkbox" id="checkbox" />
         </div>
       <div className="flex flex-col gap-3 p-6">
-        <span className="text-md md:text-lg text-blue-500 font-bold">{title}</span>
+        <span className="text-md md:text-lg text-blue-600 font-bold">{title}</span>
         <span className="text-xs md:text-sm text-gray-500 font-bold italic">{description}</span>
       </div>
       </div>
       <div className="flex flex-col justify-around p-3 mr-4">
-      <button onClick={handleClick} className=""><img src={Trash} alt="" /></button>
-      <button onClick={()=>setIsEditing(prev=>!prev)} className=""><img src={Pencil} alt="" /></button>
+      <button onClick={handleClick} className=""><img src={Trash} alt="" width="20rem" /></button>
+      <button onClick={()=>setIsEditing(prev=>!prev)} className=""><img src={Pencil} alt="" width="20rem" /></button>
       </div>
     </div>
    {isEditing && <div>
       <form onSubmit={handleUpdateSubmit} className="flex justify-between px-5">
         <input required type="text" onChange={handleUpdateChange} name="title" defaultValue={title} className="border p-3 m-4 rounded-lg bg-slate-300" placeholder="Enter new title"/>
         <input required type="text" onChange={handleUpdateChange} name="description" defaultValue={description} className="border p-3 m-4 rounded-lg bg-slate-300" placeholder="Enter new description"/>
-        <button>Update</button>
+        <button className="border rounded-lg px-4 py-1 m-4 bg-slate-600 text-white">Update</button>
       </form>
     </div>}
 
-    {error && <p className="text-red-700 text-sm">{error}</p>}
+    {error && <p className="text-white-700 text-sm">{error}</p>}
     </>
   );
 }

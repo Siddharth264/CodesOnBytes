@@ -31,7 +31,7 @@ export default function Body() {
   const sec = Math.floor((count % 6000) / 100);
   const ms = Math.floor(count % 100);
   return (
-    <div className="flex flex-col items-center mt-24 mb-16 xl:pl-32">
+    <div className="flex flex-col items-center mt-24 lg:mr-20 mb-16 xl:pl-32">
       <h1 className=" text-sm lg:text-lg text-slate-600 my-4 font-medium ">Online Stop watch and timer</h1>
       <h1 className="text-5xl lg:text-5xl tracking-wide mt-9 lg:mt-20">
         {" "}
