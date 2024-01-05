@@ -34,23 +34,23 @@ function App() {
   }, [length, hasNumbers, hasSpecialChars, generatePassword]);
 
   return (
-    <>
-      <h1 className="text-4xl p-8 ">Password generator</h1>
-      <div>
+    <div className="max-w-xl  text-white mx-auto my-[15rem] p-8">
+      <h1 className="text-4xl pb-6 text-center">Password generator</h1>
+      <div className="flex items-center">
         <input
           placeholder="Password"
           readOnly
-          className="rounded-lg outline-none py-4 px-2 w-96"
+          className="text-slate-800 text-lg rounded-l-lg outline-none py-4 px-2 w-[25rem]"
           type="text"
           value={password}
           ref={passwordRef}
         />
-        <button onClick={copyPassword} className="outline-none bg-blue-700 text-white px-5 py-3 hover:opacity-85">
+        <button onClick={copyPassword} className="outline-none bg-blue-700 text-white px-5 py-[1.1rem] rounded-r-lg w-[6rem] hover:opacity-85">
           Copy
         </button>
       </div>
 
-      <div className="flex text-[0.9rem] gap-x-4 mt-5">
+      <div className="flex text-[1rem] gap-x-4 mt-5">
         <div className="flex items-center gap-x-2">
           <input
             type="range"
@@ -85,7 +85,7 @@ function App() {
           <label>Special Chars </label>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
