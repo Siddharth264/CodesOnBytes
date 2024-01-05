@@ -6,6 +6,7 @@ function App() {
   const [length, setLength] = useState(8);
   const [hasNumbers, setHasNumbers] = useState(false);
   const [hasSpecialChars, setHasSpecialChars] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
 
   const passwordRef = useRef(null);
 
@@ -28,11 +29,18 @@ function App() {
   const copyPassword = useCallback(()=>{
     passwordRef.current?.select()
     window.navigator.clipboard.writeText(password)
+    messageDisplay();
   },[password])
   useEffect(() => {
     generatePassword();
   }, [length, hasNumbers, hasSpecialChars, generatePassword]);
 
+  const messageDisplay = () => {
+  setShowMessage(true);
+    setTimeout(()=>{
+      setShowMessage(false);
+    },1000);
+  }
   return (
     <div className="max-w-xl  text-white mx-auto my-[15rem] p-8">
       <h1 className="text-4xl pb-6 text-center">Password generator</h1>
@@ -85,6 +93,14 @@ function App() {
           <label>Special Chars </label>
         </div>
       </div>
+
+      {
+        showMessage && (
+          <div className="mt-6 text-center">
+            <p className="text-green-500 text-md">Password Copied Succesfully!!!</p>
+          </div>
+        )
+      }
     </div>
   );
 }
